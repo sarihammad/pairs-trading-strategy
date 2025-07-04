@@ -6,8 +6,8 @@ A quantitative trading system that identifies statistically related stock pairs,
 
 This project identifies pairs of stocks that are:
 
-- **Highly correlated** using Pearson correlation
-- **Statistically cointegrated** using the **Engle-Granger cointegration test**
+- Highly correlated using Pearson correlation
+- Statistically cointegrated using the Engle-Granger cointegration test
 
 Once identified, the spread between the two stocks is tracked over time:
 
