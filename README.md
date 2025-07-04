@@ -11,8 +11,8 @@ This project identifies pairs of stocks that are:
 
 Once identified, the spread between the two stocks is tracked over time:
 
-- A Z-score is computed using a rolling window (default: 60 days)
-- A trade is entered when the Z-score exceeds a threshold (e.g. ±2), indicating a divergence
+- A Z-score is computed using a rolling window (60 days by default)
+- A trade is entered when the Z-score exceeds a threshold (±2 by default), indicating a divergence
 - The position is exited when the spread mean-reverts (Z-score returns within ±0.5)
 
 Trades are executed as:
@@ -36,9 +36,6 @@ This allows the strategy to profit when the price relationship converges again.
 ## How to Run
 
 ```bash
-git clone https://github.com/sarihammad/pairs-trading-strategy.git
-cd pairs-trading-strategy
-
 pip install -r requirements.txt
 
 python main.py
