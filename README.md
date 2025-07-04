@@ -1,6 +1,6 @@
 # Pairs Trading Strategy
 
-A modular quantitative trading system that identifies statistically related stock pairs, and trades their spread using a mean-reversion strategy.
+A quantitative trading system that identifies statistically related stock pairs, and trades their spread using a mean-reversion strategy.
 
 ## Strategy Overview
 
