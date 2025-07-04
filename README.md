@@ -1,27 +1,34 @@
 # Pairs Trading Strategy
 
-A modular quantitative trading system that identifies statistically related stock pairs and trades their spread using a mean-reversion strategy.
+A modular quantitative trading system that identifies statistically related stock pairs using correlation and cointegration, and trades their spread using a mean-reversion strategy.
 
 ## Strategy Overview
 
 This project identifies pairs of stocks that are:
 
-- **Highly correlated**
-- **Statistically cointegrated**
+- **Highly correlated** using Pearson correlation
+- **Statistically cointegrated** using the **Engle-Granger cointegration test**
 
-It then monitors the **spread** between those stocks:
+Once identified, the spread between the two stocks is tracked over time:
 
-- Enters a trade when the spread deviates significantly (Z-score > ±2)
-- Exits when the spread mean-reverts (Z-score < ±0.5)
+- A Z-score is computed using a rolling window (default: 60 days)
+- A trade is entered when the Z-score exceeds a threshold (e.g. ±2), indicating a divergence
+- The position is exited when the spread mean-reverts (Z-score returns within ±0.5)
 
-Trades are executed by taking **long/short positions** on the pair to capture the convergence.
+Trades are executed as:
 
-## Example Output
+- Long the underpriced asset
+- Short the overpriced asset
+
+This allows the strategy to profit when the price relationship converges again.
+
+## Output
 
 - Equity curve of the portfolio  
 - Z-score plot showing entry/exit points  
 - Position chart  
 - Final stats:
+  
   - Total return
   - Sharpe ratio
   - Max drawdown
